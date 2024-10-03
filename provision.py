@@ -22,18 +22,18 @@ if not is_admin():
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit()
 
-# Directory containing the ISOs
+# Directory containing the ISOs, replace with your directory!
 iso_directory = r"C:\Users\Will\Desktop\Operating system ISOs"
 
 # Get a list of ISO files in the directory
 iso_files = [f for f in os.listdir(iso_directory) if f.endswith(".iso")]
 
-# Display the list of ISOs in green with bold text
+# Display the list of ISOs
 print(Fore.GREEN + Style.BRIGHT + "Available ISOs:" + Style.RESET_ALL)
 for i, iso in enumerate(iso_files, 1):
     print(f"{Fore.YELLOW}{i}. {iso}{Style.RESET_ALL}")
 
-# Ask user to select ISOs by number with blue prompt
+# Ask user to select ISOs
 user_input = input(Fore.CYAN + "Enter the numbers of the ISOs you'd like to provision (e.g., 1,2,3): " + Style.RESET_ALL)
 selected_indices = [int(x.strip()) for x in user_input.split(",")]
 
